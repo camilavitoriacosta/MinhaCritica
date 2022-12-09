@@ -1,0 +1,31 @@
+.cabecalho {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    background-color: var(--azul);
+    padding: 20px 30px;
+    margin-bottom: 40px;
+  }
+  
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-titulo {
+    font-size: 30px;
+  }
+  
+  .nav-item {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .nav-item:hover {
+    border-bottom: 3px solid #f6f7f1;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #f6f7f1;
+  }
+  
