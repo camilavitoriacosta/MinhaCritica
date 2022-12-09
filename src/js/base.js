@@ -1,11 +1,5 @@
 const caminhoTemplates = "../../templates";
 
-configurarTela();
-
-function configurarTela() {
-    exibirCabecalho();
-}
-
 function exibirConteudoEm(container, conteudo) {
     container.load(conteudo);
 }
@@ -24,4 +18,8 @@ export function adicionarLivro() {
 
 export function detalhesLivro() {
     window.location.href = "../templates/detalhesLivro.html";
+}
+
+export function adicionarCritica() {
+    window.location.href = "../templates/adicionarCritica.html";
 }

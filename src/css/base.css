@@ -3,6 +3,7 @@
 @import url(components/cabecalho.css);
 @import url(components/titulo.css);
 @import url(components/botao.css);
+@import url(components/formulario.css);
 
 :root {
   --azul: #4498c7;

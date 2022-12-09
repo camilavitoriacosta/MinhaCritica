@@ -1,4 +1,4 @@
-.adicionar__livro {
+.formulario__adicionar {
     min-width: 300px;
     background-color: var(--azul-claro);
     padding: 30px;
@@ -6,7 +6,7 @@
     margin-bottom: 40px;
 }
 
-.campo__livro {
+.formulario__adicionar__campo {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -14,13 +14,13 @@
     margin-bottom: 20px;
 }
 
-.campo__livro__label {
+.formulario__adicionar__campo__label {
     font-size: 20px;
     color: var(--azul);
     font-weight: bold;
 }
 
-.campo__livro__input {
+.formulario__adicionar__campo__input {
     box-shadow: grey 0px 3px 4px 0px;
     border: none;
     padding: 5px;
@@ -28,11 +28,11 @@
 }
 
 @media screen and (min-width: 700px) {
-    .adicionar__livro {
+    .formulario__adicionar {
         max-width: 80vw;
     }
 
-    .campo__livro__label {
+    .formulario__adicionar__campo__label {
         font-size: 24px;
     }
 }
