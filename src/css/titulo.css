@@ -1,0 +1,30 @@
+.titulo {
+  margin: 15px 0;
+  font-weight: bolder;
+  font-size: 44px;
+}
+
+.titulo::before {
+  content: "";
+  height: 45px;
+  width: 14px;
+  display: inline-block;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.titulo-azul {
+  color: var(--azul);
+}
+
+.titulo-azul::before {
+  background-color: var(--azul);
+}
+
+.titulo-vermelho {
+  color: var(--vermelho);
+}
+
+.titulo-vermelho::before {
+  background-color: var(--vermelho);
+}

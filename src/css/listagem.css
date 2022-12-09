@@ -1,0 +1,10 @@
+@import url(search-input.css);
+
+@media screen and (min-width: 700px) {
+    .cabecalho__listagem{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+}

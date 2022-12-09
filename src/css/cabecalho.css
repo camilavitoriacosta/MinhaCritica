@@ -3,6 +3,7 @@
     background-color: var(--azul);
     padding: 20px 30px;
     margin-bottom: 40px;
+    width: 100%;
   }
   
   .nav-bar {
