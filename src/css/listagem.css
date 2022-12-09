@@ -1,5 +1,12 @@
 @import url(search-input.css);
 
+.listagem__opcoes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
 @media screen and (min-width: 700px) {
     .cabecalho__listagem{
         display: flex;

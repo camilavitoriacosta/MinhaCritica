@@ -15,6 +15,10 @@ function exibirCabecalho(){
     exibirConteudoEm($("#cabecalho"), caminhoTemplates + "/cabecalho.html");   
 }
 
-function listagemLivros(){
+export function listagemLivros(){
     exibirConteudoEm($("#principal"), caminhoTemplates + "/listagem.html");
+}
+
+export function adicionarLivro(){
+    exibirConteudoEm($("#principal"), caminhoTemplates + "/adicionarLivro.html");
 }
