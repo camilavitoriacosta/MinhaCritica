@@ -1,24 +1,27 @@
 const caminhoTemplates = "../../templates";
 
-configurarTelaInicial();
+configurarTela();
 
-function configurarTelaInicial() {
+function configurarTela() {
     exibirCabecalho();
-    listagemLivros();
 }
 
 function exibirConteudoEm(container, conteudo) {
     container.load(conteudo);
 }
 
-function exibirCabecalho() {
+export function exibirCabecalho() {
     exibirConteudoEm($("#cabecalho"), caminhoTemplates + "/cabecalho.html");
 }
 
 export function listagemLivros() {
-    exibirConteudoEm($("#principal"), caminhoTemplates + "/listagem.html");
+    window.location.href = "../templates/index.html";
 }
 
 export function adicionarLivro() {
-    exibirConteudoEm($("#principal"), caminhoTemplates + "/adicionarLivro.html");
+    window.location.href = "../templates/adicionarLivro.html";
+}
+
+export function detalhesLivro() {
+    window.location.href = "../templates/detalhesLivro.html";
 }

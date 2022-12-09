@@ -3,9 +3,6 @@
 @import url(components/cabecalho.css);
 @import url(components/titulo.css);
 @import url(components/botao.css);
-@import url(listagem.css);
-@import url(adicionarLivro.css);
-
 
 :root {
   --azul: #4498c7;

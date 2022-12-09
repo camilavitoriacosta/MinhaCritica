@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Minha Critica </title>
+    <link rel="stylesheet" href="../src/css/base.css" />
+    <link rel="stylesheet" href="../src/css/detalhesLivro.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script type="module" src="../src/js/base.js" defer></script>
+
+    <header id="cabecalho" class="cabecalho"></header>
+    <main class="principal">
+      <section class="livro">
+        <h1 class="titulo titulo-azul" id="titulo">TITULO LIVRO</h1>
+        <div class="detalhes">
+          <img src="" class="capa" id="banner"></img>
+          <div class="container-flex-column">
+            <p class="detalhes-subtitulo">Sinopse</p>
+            <p class="texto" id="sinopse">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+              consequuntur ipsam similique voluptates perspiciatis eaque. Odit,
+              totam? Quidem aliquid, laboriosam ipsum hic, officiis sequi
+              nesciunt nisi ut distinctio officia consequuntur.
+            </p>
+          </div>
+          <div class="linha-vertical"></div>
+          <div class="container-flex-column">
+            <p class="detalhes-subtitulo">Outras informações</p>
+            <p class="texto" id="autor">Autor:</p>
+            <p class="texto" id="genero">Genero:</p>
+            <p class="texto" id="quantidadePaginas">Quantidade de Páginas:</p>
+          </div>
+        </div>
+      </section>
+      <section class="criticas">
+        <div class="criticas-cabecalho">
+          <h2 class="criticas-cabecalho-titulo">CRITICAS</h2>
+          <button class="btn-outline-vermelho" id="adicionarCritica">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-plus-circle-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
+              />
+            </svg>
+            ADICIONAR CRITICA
+          </button>
+        </div>
+        <div class="criticas-livro" id="criticas-livro"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

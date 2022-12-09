@@ -7,13 +7,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Minha Critica</title>
 
-  <link rel="stylesheet" href="../src/css/base.css" />
+  <link rel="stylesheet" href="../src/css/base.css"/>
+  <link rel="stylesheet" href="../src/css/listagem.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
   <header id="cabecalho" class="cabecalho"></header>
-  <main id="principal"></main>
+  <main id="principal">
+    <section class="cabecalho__listagem">
+      <h1 class="titulo titulo-azul">LIVROS</h1>
+      <div class="listagem__opcoes">
+        <div class="search-box">
+          <input id="search" class="search-box__input" type="text" />
+          <div class="search-box__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+              viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+          </div>
+        </div>
+        <button id="btn-cadastro-livro" class="btn-outline-vermelho btn-adicionar"> ADICIONAR </button>
+      </div>
+    </section>
+
+    <section id="listagem" class="livros">
+      <ul class="lista-livros">
+        <li class="lista-livros__item">
+          <img src="#" alt="" class="lista-livros__item__banner">
+          <p class="lista-livros__item__titulo"> Titulo </p>
+        </li>
+      </ul>
+    </section>
+
+    <script type="module" src="src/js/listagem.js"></script>
+
+  </main>
 
   <script type="module" src="src/js/base.js"></script>
 </body>
