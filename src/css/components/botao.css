@@ -1,0 +1,33 @@
+.btn-outline-vermelho {
+  background-color: white;
+  color: var(--vermelho);
+  border: 3px solid var(--vermelho);
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+
+  height: 46px;
+  margin: 15px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline-vermelho>svg {
+  margin-right: 5px;
+}
+
+.btn-enviar {
+  background-color: #198BCA;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+

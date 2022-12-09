@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;700&display=swap");
 @import url(reset.css);
-@import url(cabecalho.css);
-@import url(titulo.css);
-@import url(botao.css);
+@import url(components/cabecalho.css);
+@import url(components/titulo.css);
+@import url(components/botao.css);
 @import url(listagem.css);
+@import url(adicionarLivro.css);
 
 
 :root {

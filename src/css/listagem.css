@@ -1,4 +1,4 @@
-@import url(search-input.css);
+@import url(components/search-input.css);
 
 .listagem__opcoes{
     display: flex;

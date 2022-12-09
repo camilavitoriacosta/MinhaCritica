@@ -1,0 +1,38 @@
+.adicionar__livro {
+    min-width: 300px;
+    background-color: var(--azul-claro);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.campo__livro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.campo__livro__label {
+    font-size: 20px;
+    color: var(--azul);
+    font-weight: bold;
+}
+
+.campo__livro__input {
+    box-shadow: grey 0px 3px 4px 0px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 700px) {
+    .adicionar__livro {
+        max-width: 80vw;
+    }
+
+    .campo__livro__label {
+        font-size: 24px;
+    }
+}
