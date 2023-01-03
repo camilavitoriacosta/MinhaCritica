@@ -4,6 +4,7 @@
 @import url(components/titulo.css);
 @import url(components/botao.css);
 @import url(components/formulario.css);
+@import url(components/alertas.css);
 
 :root {
   --azul: #4498c7;
@@ -28,14 +29,3 @@ main {
   margin: 0 auto;
 }
 
-.alerta {
-  width: 100%;
-  color: #004085;
-  background-color: #cce5ff;
-  border-color: #b8daff;
-  padding: 20px;
-  margin-bottom: 1rem;
-  border-radius: 0.25rem;
-  margin-top: 10px;
-  display: inline-block;
-}

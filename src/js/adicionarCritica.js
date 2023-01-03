@@ -1,5 +1,5 @@
 import { exibirCabecalho } from "../js/base.js";
-import { buscarCritica, criarCritica, editarCritica } from "../js/repositorios/criticasRepositorio.js";
+import { criarCritica, editarCritica } from "../js/repositorios/criticasRepositorio.js";
 import { buscarLivro, buscarReferenciaLivro } from "../js/repositorios/livrosRepositorio.js";
 
 inicializar();
@@ -9,14 +9,6 @@ async function inicializar() {
     exibirCabecalho();
     let idLivro = obterIdLivro();
     let idCritica = obterIdCritica();
-
-    if (idCritica != null) { //editar
-        // mostrar informações da critica
-        document.getElementById("titulo").textContent = "EDITAR CRITICA";
-        let criticaBanco = await buscarCritica(idCritica);
-        document.getElementById('userName').value = criticaBanco.username;
-        document.getElementById('critica').value = criticaBanco.critica;
-    }
 
     var livro = await buscarLivro(idLivro);
     document.getElementById('livro-atual').textContent = livro.titulo;

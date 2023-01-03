@@ -25,11 +25,9 @@ function listarLivros(lista) {
     let listagem = document.getElementById("listagem");
     listagem.innerHTML = "";
 
-    for (let index = 0; index < 30; index++) {
-        for (let livro of lista) {
-            var item = preencherLivro(livro);
-            listagem.appendChild(item);
-        }
+    for (let livro of lista) {
+        var item = preencherLivro(livro);
+        listagem.appendChild(item);
     }
 }
 
@@ -45,7 +43,7 @@ function preencherLivro(livro) {
     itemLista.appendChild(imagem);
     itemLista.appendChild(titulo);
 
-    addEventListener('click', () => {
+    itemLista.addEventListener('click', () => {
         let caminho = "templates/detalhesLivro.html?idLivro=" + livro.id;
         redirecionarPara(caminho);
     });

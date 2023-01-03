@@ -40,7 +40,7 @@ async function preencherDadosCritica(livro) {
     let criticas = await buscarCriticasLivro(livro);
     if (criticas.length == 0) {
         let container = document.getElementById('criticas-livro');
-        container.innerHTML = "<span class='alerta'> Não há criticas para esse livro </span>"
+        container.innerHTML = "<span class='alerta alerta-padrao'> Não há criticas para esse livro </span>"
     }
     else {
         criticas.forEach((critica) => {

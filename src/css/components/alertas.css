@@ -1,0 +1,26 @@
+.alerta {
+  width: 100%;
+  color: #7a7a7a;
+  background-color: #f7f7f7;
+  border-color: #fafafa;
+  padding: 20px;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  margin-top: 10px;
+  display: none;
+}
+
+.alerta-padrao {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+  display: inline-block;
+
+}
+
+.alerta-erro {
+  color: #850000;
+  background-color: #ffcccc;
+  border-color: #ffb8b8;
+  display: inline-block;
+}

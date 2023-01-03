@@ -14,31 +14,36 @@
         <header id="cabecalho" class="cabecalho"></header>
         <main class="principal">
             <h2 class="titulo titulo-vermelho">ADICIONAR LIVRO</h2>
-
             <section class="formulario__adicionar">
                 <div class="formulario__adicionar__campo"> 
-                    <label class="formulario__adicionar__campo__label">Nome</label>
-                    <input type="text" class="formulario__adicionar__campo__input">    
+                    <label class="formulario__adicionar__campo__label">Titulo*</label>
+                    <input type="text" class="formulario__adicionar__campo__input" name="titulo" id="titulo">    
+                    <span class="alerta" id="alerta-titulo"></span>
                 </div>
                 <div class="formulario__adicionar__campo"> 
-                    <label class="formulario__adicionar__campo__label">Genero</label>
-                    <input type="text" class="formulario__adicionar__campo__input">    
+                    <label class="formulario__adicionar__campo__label">Genero*</label>
+                    <input type="text" class="formulario__adicionar__campo__input" name="genero" id="genero">    
+                    <span class="alerta" id="alerta-genero"></span>
                 </div>
                 <div class="formulario__adicionar__campo"> 
-                    <label class="formulario__adicionar__campo__label">Quantidade de Páginas</label>
-                    <input type="text" class="formulario__adicionar__campo__input">    
+                    <label class="formulario__adicionar__campo__label">Quantidade de Páginas*</label>
+                    <input type="text" class="formulario__adicionar__campo__input" name="quantidadePaginas" id="quantidadePaginas">    
+                    <span class="alerta" id="alerta-quantidadePaginas"></span>
                 </div>
                 <div class="formulario__adicionar__campo"> 
-                    <label class="formulario__adicionar__campo__label">Autor</label>
-                    <input type="text" class="formulario__adicionar__campo__input">    
+                    <label class="formulario__adicionar__campo__label">Autor*</label>
+                    <input type="text" class="formulario__adicionar__campo__input" name="autor" id="autor">  
+                    <span class="alerta" id="alerta-autor"></span>  
                 </div>
                 <div class="formulario__adicionar__campo"> 
-                    <label class="formulario__adicionar__campo__label">Sinopse</label>
-                    <textarea  rows="4" cols="50" class="formulario__adicionar__campo__input"></textarea> 
+                    <label class="formulario__adicionar__campo__label">Sinopse*</label>
+                    <textarea  rows="4" cols="50" class="formulario__adicionar__campo__input" name="sinopse" id="sinopse"></textarea> 
+                    <span class="alerta" id="alerta-sinopse"></span>
                 </div>
                 <div class="formulario__adicionar__campo"> 
-                    <label class="formulario__adicionar__campo__label">Banner</label>
-                    <input type="text" class="formulario__adicionar__campo__input">    
+                    <label class="formulario__adicionar__campo__label">Banner*</label>
+                    <input type="text" class="formulario__adicionar__campo__input" name="banner" id="banner">   
+                    <span class="alerta" id="alerta-banner"></span> 
                 </div>
                 <div class="formulario__adicionar__campo">  
                     <button id="cadastro-livro" class="btn-enviar"> ADICIONAR </button>
