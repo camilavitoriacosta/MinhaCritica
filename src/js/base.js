@@ -9,17 +9,21 @@ export function exibirCabecalho() {
 }
 
 export function listagemLivros() {
-    window.location.href = "../templates/index.html";
+    redirecionarPara("../templates/index.html");
 }
 
 export function adicionarLivro() {
-    window.location.href = "../templates/adicionarLivro.html";
+    redirecionarPara("../templates/adicionarLivro.html");
 }
 
 export function detalhesLivro() {
-    window.location.href = "../templates/detalhesLivro.html";
+    redirecionarPara("../templates/detalhesLivro.html");
 }
 
 export function adicionarCritica() {
-    window.location.href = "../templates/adicionarCritica.html";
+    redirecionarPara("../templates/adicionarCritica.html");
+}
+
+export function redirecionarPara(caminho) {
+    window.location.href = caminho;
 }

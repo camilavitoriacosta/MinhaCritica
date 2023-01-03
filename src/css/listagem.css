@@ -1,17 +1,41 @@
 @import url(components/search-input.css);
 
-.listagem__opcoes{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+.listagem__opcoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.lista-livros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.lista-livros__item {
+  width: 150px;
+  cursor: pointer;
+}
+
+.lista-livros__item__banner {
+  width: 150px;
+  height: 185px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.lista-livros__item__titulo {
+  font-size: 18px;
+  display: block;
 }
 
 @media screen and (min-width: 700px) {
-    .cabecalho__listagem{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
+  .cabecalho__listagem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
 }
