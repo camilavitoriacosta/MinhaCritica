@@ -1,0 +1,11 @@
+.critica {
+  background-color: var(--azul-claro);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.critica-data {
+  color: var(--azul);
+  font-size: 16px;
+}
