@@ -44,7 +44,7 @@ function preencherLivro(livro) {
     itemLista.appendChild(titulo);
 
     itemLista.addEventListener('click', () => {
-        let caminho = "templates/detalhesLivro.html?idLivro=" + livro.id;
+        let caminho = "detalhesLivro.html?idLivro=" + livro.id;
         redirecionarPara(caminho);
     });
 

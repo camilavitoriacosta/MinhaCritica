@@ -16,6 +16,11 @@
         <form class="formulario">
           <h1 class="formulario__titulo"> Minha Critica </h1>
           <div class="formulario__campo">
+            <label class="formulario__campo__label" for="username">Usuario*</label>
+            <input type="text" class="formulario__campo__input" name="username" id="username"/>
+            <span class="alerta" id="alerta-username"></span>
+          </div>
+          <div class="formulario__campo">
             <label class="formulario__campo__label" for="email">Email*</label>
             <input type="text" class="formulario__campo__input" name="email" id="email"/>
             <span class="alerta" id="alerta-email"></span>
@@ -26,10 +31,10 @@
             <span class="alerta" id="alerta-senha"></span>
           </div>
           <div class="formulario__campo">  
-            <button id="cadastro-critica" class="btn-enviar"> ENTRAR </button>
-        </div>
+            <button id="cadastro-critica" class="btn-enviar"> REGISTRAR  </button>
+          </div>
         </form>
-        <p class="texto"> Não tem uma conta ainda? <a href="templates/criarConta.html" class="link--azul"> Registrar-se </a></p>
+        <p class="texto"> Já possui uma conta?  <a href="../index.html" class="link--azul"> Fazer login </a></p>
       </div>
     </main>
 
