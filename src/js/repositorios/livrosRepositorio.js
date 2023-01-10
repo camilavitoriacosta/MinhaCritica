@@ -1,8 +1,6 @@
 import { doc, getDoc, setDoc, query, collection, getDocs, orderBy, startAt, endAt, where } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
 
-import { inicializarFirebase } from '../firebaseConfig.js';
-
-const db = inicializarFirebase();
+import { db } from '../firebaseConfig.js'
 
 export async function buscarTodos() {
     const querySnapshot = await getDocs(collection(db, "livros"));

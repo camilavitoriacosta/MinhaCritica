@@ -1,8 +1,6 @@
 import { doc, collection, query, where, getDocs, getDoc, setDoc, updateDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
 
-import { inicializarFirebase } from '../firebaseConfig.js'
-
-const db = inicializarFirebase();
+import { db } from '../firebaseConfig.js'
 
 
 export async function buscarCriticasLivro(idLivro) {
