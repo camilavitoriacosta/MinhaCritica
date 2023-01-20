@@ -4,17 +4,16 @@ import { obterUsuarioLogado, usuarioLogado } from "./auth-guard.js";
 
 
 inicializar();
-let usuario = null;
 
 async function inicializar() {
     if(usuarioLogado()){
         exibirCabecalho();
         preencherDadosCriticas();
-        usuario = await obterUsuarioLogado();
     }
 }
 
 async function preencherDadosCriticas() {
+    let usuario = await obterUsuarioLogado();
     let criticas = await buscarCriticasUsuario(usuario.referencia);
     if (criticas.length == 0) {
         let container = document.getElementById('criticas-usuario');
@@ -29,7 +28,7 @@ async function preencherDadosCriticas() {
 
 
 function criarCriticaHTML(critica) {
-    let container = document.getElementById('criticas-livro');
+    let container = document.getElementById('criticas-usuario');
     let criticaDiv = `
         <div class='critica'>
             <p class='critica-username' id='username'>${critica.livro}</p>

@@ -22,5 +22,5 @@ export function usuarioLogado() {
 
 
 export async function obterUsuarioLogado(){
-    await obterUsuario(usuarioLogado());
+    return await obterUsuario(usuarioLogado());
 }

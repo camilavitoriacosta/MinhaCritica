@@ -9,3 +9,10 @@
   color: var(--azul);
   font-size: 16px;
 }
+
+.critica-username {
+  color: var(--azul);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px 0;
+}

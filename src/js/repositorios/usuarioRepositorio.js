@@ -34,7 +34,6 @@ export function logar(usuario) {
 }
 
 export function logout() {
-    console.log(auth);
     signOut(auth)
         .then((userCredential) => {
             console.log(userCredential);
@@ -45,23 +44,20 @@ export function logout() {
 }
 
 export async function obterUsuario(uid) {
-    console.log(uid);
     const docRef = doc(db, 'usuarios', uid);
-    console.log(docRef);
 
     const docSnap = await getDoc(docRef).then(resultado => {
         return converterUsuarioParaJSON(resultado.id, docRef, resultado.data());
     }).catch(erro => {
         console.log(erro);
     });
-    
     return docSnap;
 }
 
 function converterUsuarioParaJSON(id, docRef, documento) {
     return {
         "id": id,
-        "email": documento.banner,
+        "email": documento.email,
         "username": documento.username,
         "referencia": docRef
     }

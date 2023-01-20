@@ -15,6 +15,31 @@
   vertical-align: middle;
 }
 
+.acoes {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 8px;
+}
+
+.btn-icon {
+  border: none;
+  background-color: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.edit {
+  color: var(--azul);
+  border: 2px solid var(--azul);
+}
+
+.delete {
+  color: var(--vermelho);
+  border: 2px solid var(--vermelho);
+}
+
 @media only screen and (min-device-width: 800px) {
   .criticas {
     display: inline-block;
