@@ -1,5 +1,5 @@
 import { db, auth } from '../firebaseConfig.js';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
 
 import { doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
 
@@ -34,8 +34,17 @@ export function logar(usuario) {
         })
 }
 
-export function usuarioLogado(){
-    onAuthStateChanged(usuario => {
-        return usuario;
-    })
+export function logout() {
+    console.log(auth);
+    signOut(auth)
+        .then((userCredential) => {
+            console.log(userCredential);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+}
+
+export function usuarioLogado() {
+    return auth.currentUser;
 }

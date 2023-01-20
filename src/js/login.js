@@ -1,7 +1,7 @@
 import { logar, usuarioLogado } from "../js/repositorios/usuarioRepositorio.js";
 import { redirecionarPara } from "../js/base.js";
 
-if (usuarioLogado) {
+if (usuarioLogado()) {
     redirecionarPara("../../templates/listagemLivro.html");
 }
 

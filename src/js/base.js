@@ -1,4 +1,5 @@
 const caminhoTemplates = "../../templates";
+import { logout, usuarioLogado } from "../js/repositorios/usuarioRepositorio.js";
 
 function exibirConteudoEm(container, conteudo) {
     container.load(conteudo);
@@ -6,6 +7,21 @@ function exibirConteudoEm(container, conteudo) {
 
 export function exibirCabecalho() {
     exibirConteudoEm($("#cabecalho"), caminhoTemplates + "/cabecalho.html");
+    setTimeout(() => {
+        const botao = document.querySelector("#logout");
+        if (usuarioLogado()) {
+            botao.addEventListener('click', () => {
+                logout();
+                redirecionarPara("../index.html")
+            })
+        }
+        else {
+            botao.textContent = "Login";
+            botao.addEventListener('click', () => {
+                redirecionarPara("../index.html")
+            })
+        }
+    }, 3000)
 }
 
 export function listagemLivros() {
@@ -27,3 +43,4 @@ export function adicionarCritica() {
 export function redirecionarPara(caminho) {
     window.location.href = caminho;
 }
+
