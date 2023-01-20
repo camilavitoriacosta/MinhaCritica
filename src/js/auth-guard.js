@@ -1,5 +1,8 @@
 import { obterUsuario } from './repositorios/usuarioRepositorio.js';
 
+
+// TO DO: criar função que apaga cookie quando o usuario desloga
+// TO DO: colocar data de expiração
 export function criarCookie(userCredential) {
     document.cookie = "usuarioToken=" + userCredential.user.accessToken;
     document.cookie = "usuarioUid=" + userCredential.user.uid;
