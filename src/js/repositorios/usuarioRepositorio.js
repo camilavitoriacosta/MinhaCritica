@@ -1,7 +1,7 @@
 import { db, auth } from '../firebaseConfig.js';
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
 
-import { doc, setDoc, collection } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
+import { doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
 
 
 // ToDO: Mensagem para email já existe
@@ -22,4 +22,20 @@ async function criarUsuario(chave, usuario) {
         username: usuario.username,
         email: usuario.email,
     });
+}
+
+export function logar(usuario) {
+    signInWithEmailAndPassword(auth, usuario.email, usuario.senha)
+        .then((userCredential) => {
+            console.log(userCredential);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+}
+
+export function usuarioLogado(){
+    onAuthStateChanged(usuario => {
+        return usuario;
+    })
 }

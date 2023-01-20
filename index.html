@@ -22,11 +22,11 @@
           </div>
           <div class="formulario__campo">
             <label class="formulario__campo__label" for="senha">Senha*</label>
-            <input type="text" class="formulario__campo__input" name="senha" id="senha"/>
+            <input type="password" class="formulario__campo__input" name="senha" id="senha" minlength="6"/>
             <span class="alerta" id="alerta-senha"></span>
           </div>
           <div class="formulario__campo">  
-            <button id="cadastro-critica" class="btn-enviar"> ENTRAR </button>
+            <button type="button" id="entrar" class="btn-enviar"> ENTRAR </button>
         </div>
         </form>
         <p class="texto"> Não tem uma conta ainda? <a href="templates/criarConta.html" class="link--azul"> Registrar-se </a></p>
@@ -35,5 +35,6 @@
 
     <script type="module" src="src/js/base.js"></script>
     <script type="module" src="src/js/firebaseConfig.js"></script>
+    <script type="module" src="src/js/login.js"></script>
   </body>
 </html>
