@@ -1,0 +1,30 @@
+.criticas-cabecalho-titulo {
+  margin: 15px 0;
+  color: var(--vermelho);
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.criticas-cabecalho-titulo::before {
+  content: "";
+  background-color: var(--vermelho);
+  height: 50px;
+  width: 14px;
+  display: inline-block;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+@media only screen and (min-device-width: 800px) {
+  .criticas {
+    display: inline-block;
+    width: 95%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .criticas-cabecalho {
+    display: flex;
+    justify-content: space-between;
+  }
+}

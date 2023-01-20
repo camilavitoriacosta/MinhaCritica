@@ -1,4 +1,5 @@
-import { logar, usuarioLogado } from "../js/repositorios/usuarioRepositorio.js";
+import { logar } from "../js/repositorios/usuarioRepositorio.js";
+import { usuarioLogado } from "./auth-guard.js";
 import { redirecionarPara } from "../js/base.js";
 
 if (usuarioLogado()) {
@@ -11,5 +12,8 @@ document.querySelector("#entrar").addEventListener('click', () => {
         "senha": document.querySelector("#senha").value
     }
     logar(usuario);
-    redirecionarPara("../../templates/listagemLivro.html");
+    setTimeout (()=>{
+        redirecionarPara("../../templates/listagemLivro.html");
+    }, 3000
+    )
 })

@@ -1,4 +1,5 @@
 @import url(./components/critica.css);
+@import url(./components/criticas.css);
 .detalhes {
     margin: 5px;
 }
@@ -25,22 +26,6 @@
     line-height: 25px;
 }
 
-.criticas-cabecalho-titulo {
-    margin: 15px 0;
-    color: var(--vermelho);
-    font-weight: bolder;
-    font-size: 30px;
-}
-
-.criticas-cabecalho-titulo::before {
-    content: "";
-    background-color: var(--vermelho);
-    height: 50px;
-    width: 14px;
-    display: inline-block;
-    margin: 0 5px;
-    vertical-align: middle;
-}
 
 @media only screen and (min-device-width: 800px) {
     .detalhes {
@@ -61,17 +46,5 @@
         flex-direction: column;
         width: 90%;
         margin: 0 20px;
-    }
-
-    .criticas {
-        display: inline-block;
-        width: 95%;
-        height: auto;
-        margin-bottom: 20px;
-    }
-
-    .criticas-cabecalho {
-        display: flex;
-        justify-content: space-between;
     }
 }

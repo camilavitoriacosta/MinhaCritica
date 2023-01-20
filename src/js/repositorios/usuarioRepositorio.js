@@ -1,8 +1,7 @@
-import { db, auth } from '../firebaseConfig.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
-
-import { doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
-
+import { doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
+import { db, auth } from '../firebaseConfig.js';
+import { criarCookie } from '../auth-guard.js';
 
 // ToDO: Mensagem para email já existe
 export function criarAutentificacao(autentificacao) {
@@ -27,7 +26,7 @@ async function criarUsuario(chave, usuario) {
 export function logar(usuario) {
     signInWithEmailAndPassword(auth, usuario.email, usuario.senha)
         .then((userCredential) => {
-            console.log(userCredential);
+            criarCookie(userCredential);
         })
         .catch((error) => {
             console.log(error);
@@ -45,6 +44,26 @@ export function logout() {
         })
 }
 
-export function usuarioLogado() {
-    return auth.currentUser;
+export async function obterUsuario(uid) {
+    console.log(uid);
+    const docRef = doc(db, 'usuarios', uid);
+    console.log(docRef);
+
+    const docSnap = await getDoc(docRef).then(resultado => {
+        return converterUsuarioParaJSON(resultado.id, docRef, resultado.data());
+    }).catch(erro => {
+        console.log(erro);
+    });
+    
+    return docSnap;
 }
+
+function converterUsuarioParaJSON(id, docRef, documento) {
+    return {
+        "id": id,
+        "email": documento.banner,
+        "username": documento.username,
+        "referencia": docRef
+    }
+}
+

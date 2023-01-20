@@ -6,6 +6,7 @@ inicializar();
 
 async function inicializar() {
     exibirCabecalho();
+
     var livros = await buscarTodos();
     listarLivros(livros);
 

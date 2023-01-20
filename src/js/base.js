@@ -1,5 +1,6 @@
 const caminhoTemplates = "../../templates";
-import { logout, usuarioLogado } from "../js/repositorios/usuarioRepositorio.js";
+import { logout } from "../js/repositorios/usuarioRepositorio.js";
+import { usuarioLogado } from "../js/auth-guard.js";
 
 function exibirConteudoEm(container, conteudo) {
     container.load(conteudo);
@@ -20,6 +21,7 @@ export function exibirCabecalho() {
             botao.addEventListener('click', () => {
                 redirecionarPara("../index.html")
             })
+            document.querySelector("#perfil").style.display = "none";
         }
     }, 3000)
 }

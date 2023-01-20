@@ -47,3 +47,15 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+.nav-button-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav-button-icon > svg{
+  width: 20px;
+  height: 20px;
+}

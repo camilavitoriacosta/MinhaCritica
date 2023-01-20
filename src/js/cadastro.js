@@ -1,8 +1,5 @@
 import { criarAutentificacao } from "../js/repositorios/usuarioRepositorio.js";
 
-if (usuarioLogado) {
-    redirecionarPara("../../templates/listagemLivro.html");
-}
 
 document.querySelector("#cadastro-usuario").addEventListener('click', () => {
     let usuario = {
