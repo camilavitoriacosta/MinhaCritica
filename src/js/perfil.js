@@ -13,12 +13,15 @@ async function inicializar() {
 
     if (idUsuario != null) {
         //preencher dados do usuario --> perfil publico
-        preencherDadosCriticas((await obterUsuario(idUsuario)).referencia);
+        let usuario = await obterUsuario(idUsuario);
+        preencherDadosCriticas(usuario.referencia);
+        document.getElementById('username').innerHTML = usuario.username;
     }
     else {
         if (usuarioLogado()) {
             let usuario = await obterUsuarioLogado();
             preencherDadosCriticas(usuario.referencia);
+            document.getElementById('username').innerHTML = usuario.username;
         }
     }
 }
