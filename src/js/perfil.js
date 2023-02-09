@@ -5,11 +5,11 @@ import { obterUsuarioLogado, usuarioLogado } from "./auth-guard.js";
 import { buscarLivro } from "./repositorios/livrosRepositorio.js";
 
 
+let idUsuario = obterIdUsuario();
 inicializar();
 
 async function inicializar() {
     exibirCabecalho();
-    let idUsuario = obterIdUsuario();
 
     if (idUsuario != null) {
         //preencher dados do usuario --> perfil publico
@@ -40,7 +40,12 @@ async function preencherDadosCriticas(usuario) {
         }
         else {
             criticas.forEach((critica) => {
-                criarCriticaHTML(critica);
+                if (idUsuario == null || usuarioLogado() == idUsuario) {
+                    criarCriticaLogado(critica);
+                }
+                else {
+                    criarCriticaHTML(critica);
+                }
             });
         }
     }, 1000);
@@ -48,6 +53,19 @@ async function preencherDadosCriticas(usuario) {
 
 
 async function criarCriticaHTML(critica) {
+    let livro = await buscarLivro(critica.codigoLivro.id);
+
+    let container = document.getElementById('criticas-usuario');
+    let criticaDiv = `
+        <div class='critica'>
+            <a class='critica-username' id='username' href="detalhesLivro.html?idLivro=${livro.id}">${livro.titulo}</a>
+            <p class='critica-data' id='data'>${critica.data}</p>
+            <p class='critica-descricao texto' id='criticaDescricao'>${critica.critica}</p>
+        </div>`
+    container.innerHTML += criticaDiv;
+}
+
+async function criarCriticaLogado(critica) {
     let livro = await buscarLivro(critica.codigoLivro.id);
 
     let container = document.getElementById('criticas-usuario');
