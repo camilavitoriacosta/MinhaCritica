@@ -1,8 +1,7 @@
 import { doc, collection, query, where, getDocs, getDoc, setDoc, updateDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
 
 import { db } from '../firebaseConfig.js'
-import { obterUsuarioLogado } from '../auth-guard.js';
-
+import { obterUsuario } from './usuarioRepositorio.js';
 
 export async function buscarCriticasLivro(idLivro) {
     let livro = doc(db, 'livros', idLivro);
@@ -11,10 +10,14 @@ export async function buscarCriticasLivro(idLivro) {
     const querySnapshot = await getDocs(q);
 
     let criticasLivro = [];
-    querySnapshot.forEach((doc) => {
-        criticasLivro.push(converterCriticaParaJSON(doc.id, doc.data()))
+    querySnapshot.forEach(async (doc) => {
+        let critica = await converterCriticaParaJSON(doc.id, doc.data());
+        criticasLivro.push(critica)
+        console.log(criticasLivro);
     });
-
+    
+    console.log(criticasLivro);
+    
     return criticasLivro;
 }
 
@@ -61,13 +64,14 @@ export async function deletarCritica(idCritica) {
     await deleteDoc(doc(db, "criticas", idCritica));
 }
 
-function converterCriticaParaJSON(id, documento) {
+async function converterCriticaParaJSON(id, documento) {
+    let usuario = await obterUsuario(documento.usuario.id);
     return {
         "id": id,
         "codigoLivro": documento.codigoLivro,
         "critica": documento.critica,
         "data": documento.data,
-        "usuario": documento.usuario,
+        "usuario": usuario,
     }
 }
 

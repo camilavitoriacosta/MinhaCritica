@@ -45,7 +45,7 @@ export function logout() {
 
 export async function obterUsuario(uid) {
     const docRef = doc(db, 'usuarios', uid);
-
+    
     const docSnap = await getDoc(docRef).then(resultado => {
         return converterUsuarioParaJSON(resultado.id, docRef, resultado.data());
     }).catch(erro => {
@@ -62,4 +62,3 @@ function converterUsuarioParaJSON(id, docRef, documento) {
         "referencia": docRef
     }
 }
-

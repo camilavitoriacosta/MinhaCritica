@@ -1,6 +1,7 @@
 import { exibirCabecalho } from "../js/base.js";
 import { criarCritica, editarCritica } from "../js/repositorios/criticasRepositorio.js";
 import { buscarLivro, buscarReferenciaLivro } from "../js/repositorios/livrosRepositorio.js";
+import { obterUsuarioLogado } from "./auth-guard.js";
 
 inicializar();
 
@@ -25,7 +26,8 @@ async function inicializar() {
             dadosCritica = {
                 "critica": critica,
                 "data": date,
-                "codigoLivro": codigoLivro
+                "codigoLivro": codigoLivro,
+                "usuario": (await obterUsuarioLogado()).referencia
             }
 
             if (idCritica != null) {
@@ -34,7 +36,6 @@ async function inicializar() {
             else {
                 await criarCritica(dadosCritica);
             }
-
             setTimeout(window.location.href = "detalhesLivro.html?idLivro=" + idLivro, 500);
         }
     });

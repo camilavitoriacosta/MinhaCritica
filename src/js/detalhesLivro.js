@@ -51,9 +51,11 @@ async function preencherDadosCritica(livro) {
 
 
 function criarCriticaHTML(critica) {
+    console.log(critica);
     let container = document.getElementById('criticas-livro');
     let criticaDiv = `
         <div class='critica'> 
+            <p class='critica-data' id='data'>${critica.usuario}</p>
             <p class='critica-data' id='data'>${critica.data}</p>
             <p class='critica-descricao texto' id='criticaDescricao'>${critica.critica}</p>
         </div>`
