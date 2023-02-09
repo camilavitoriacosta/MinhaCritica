@@ -38,24 +38,25 @@ async function preencherDadosLivro(idLivro) {
 
 async function preencherDadosCritica(livro) {
     let criticas = await buscarCriticasLivro(livro);
-    if (criticas.length == 0) {
-        let container = document.getElementById('criticas-livro');
-        container.innerHTML = "<span class='alerta alerta-padrao'> Não há criticas para esse livro </span>"
-    }
-    else {
-        criticas.forEach((critica) => {
-            criarCriticaHTML(critica);
-        });
-    }
+    setTimeout(() => {
+        if (criticas.length == 0) {
+            let container = document.getElementById('criticas-livro');
+            container.innerHTML = "<span class='alerta alerta-padrao'> Não há criticas para esse livro </span>"
+        }
+        else {
+            criticas.forEach((critica) => {
+                criarCriticaHTML(critica);
+            });
+        }
+    }, 1000);
 }
 
 
 function criarCriticaHTML(critica) {
-    console.log(critica);
     let container = document.getElementById('criticas-livro');
     let criticaDiv = `
         <div class='critica'> 
-            <p class='critica-data' id='data'>${critica.usuario}</p>
+            <a class='critica-username' id='user' href='perfil.html?idUsuario='>${critica.usuario.username}</a>
             <p class='critica-data' id='data'>${critica.data}</p>
             <p class='critica-descricao texto' id='criticaDescricao'>${critica.critica}</p>
         </div>`

@@ -13,10 +13,7 @@ export async function buscarCriticasLivro(idLivro) {
     querySnapshot.forEach(async (doc) => {
         let critica = await converterCriticaParaJSON(doc.id, doc.data());
         criticasLivro.push(critica)
-        console.log(criticasLivro);
     });
-    
-    console.log(criticasLivro);
     
     return criticasLivro;
 }
