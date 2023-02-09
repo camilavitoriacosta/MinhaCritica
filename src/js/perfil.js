@@ -1,37 +1,59 @@
 import { exibirCabecalho, redirecionarPara } from "../js/base.js";
 import { buscarCriticasUsuario } from "../js/repositorios/criticasRepositorio.js";
+import { obterUsuario } from "../js/repositorios/usuarioRepositorio.js";
 import { obterUsuarioLogado, usuarioLogado } from "./auth-guard.js";
+import { buscarLivro } from "./repositorios/livrosRepositorio.js";
 
 
 inicializar();
 
 async function inicializar() {
-    if(usuarioLogado()){
-        exibirCabecalho();
-        preencherDadosCriticas();
-    }
-}
+    exibirCabecalho();
+    let idUsuario = obterIdUsuario();
 
-async function preencherDadosCriticas() {
-    let usuario = await obterUsuarioLogado();
-    let criticas = await buscarCriticasUsuario(usuario.referencia);
-    if (criticas.length == 0) {
-        let container = document.getElementById('criticas-usuario');
-        container.innerHTML = "<span class='alerta alerta-padrao'> Não há criticas para esse usuario </span>"
+    if (idUsuario != null) {
+        //preencher dados do usuario --> perfil publico
+        preencherDadosCriticas((await obterUsuario(idUsuario)).referencia);
     }
     else {
-        criticas.forEach((critica) => {
-            criarCriticaHTML(critica);
-        });
+        if (usuarioLogado()) {
+            let usuario = await obterUsuarioLogado();
+            preencherDadosCriticas(usuario.referencia);
+        }
     }
 }
 
+function obterIdUsuario() {
+    // Get idLivro in url
+    // example url: http://127.0.0.1:5500/templates/perfil.html?idUsuario=
+    const urlParams = new URLSearchParams(window.location.search);
+    const idUsuario = urlParams.get('idUsuario')
+    return idUsuario;
+}
 
-function criarCriticaHTML(critica) {
+async function preencherDadosCriticas(usuario) {
+    let criticas = await buscarCriticasUsuario(usuario);
+    setTimeout(() => {
+        if (criticas.length == 0) {
+            let container = document.getElementById('criticas-usuario');
+            container.innerHTML = "<span class='alerta alerta-padrao'> Não há criticas para esse usuario </span>"
+        }
+        else {
+            criticas.forEach((critica) => {
+                criarCriticaHTML(critica);
+            });
+        }
+    }, 1000);
+}
+
+
+async function criarCriticaHTML(critica) {
+    let livro = await buscarLivro(critica.codigoLivro.id);
+
     let container = document.getElementById('criticas-usuario');
     let criticaDiv = `
         <div class='critica'>
-            <p class='critica-username' id='username'>${critica.livro}</p>
+            <a class='critica-username' id='username' href="detalhesLivro.html?idLivro=${livro.id}">${livro.titulo}</a>
             <p class='critica-data' id='data'>${critica.data}</p>
             <p class='critica-descricao texto' id='criticaDescricao'>${critica.critica}</p>
             <div class='acoes'>

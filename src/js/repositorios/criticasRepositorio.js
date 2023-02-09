@@ -14,7 +14,7 @@ export async function buscarCriticasLivro(idLivro) {
         let critica = await converterCriticaParaJSON(doc.id, doc.data());
         criticasLivro.push(critica)
     });
-    
+
     return criticasLivro;
 }
 
@@ -76,10 +76,10 @@ export async function buscarCriticasUsuario(usuario) {
     const q = query(collection(db, "criticas"), where("usuario", "==", usuario));
 
     const querySnapshot = await getDocs(q);
-
     let criticasUsuario = [];
-    querySnapshot.forEach((doc) => {
-        criticasUsuario.push(converterCriticaParaJSON(doc.id, doc.data()))
+
+    querySnapshot.forEach(async (doc) => {
+        criticasUsuario.push(await converterCriticaParaJSON(doc.id, doc.data()))
     });
 
     return criticasUsuario;

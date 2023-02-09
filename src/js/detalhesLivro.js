@@ -56,7 +56,7 @@ function criarCriticaHTML(critica) {
     let container = document.getElementById('criticas-livro');
     let criticaDiv = `
         <div class='critica'> 
-            <a class='critica-username' id='user' href='perfil.html?idUsuario='>${critica.usuario.username}</a>
+            <a class='critica-username' id='user' href='perfil.html?idUsuario=${critica.usuario.id}'>${critica.usuario.username}</a>
             <p class='critica-data' id='data'>${critica.data}</p>
             <p class='critica-descricao texto' id='criticaDescricao'>${critica.critica}</p>
         </div>`
