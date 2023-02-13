@@ -1,5 +1,5 @@
 import { exibirCabecalho } from "../js/base.js";
-import { criarCritica, editarCritica } from "../js/repositorios/criticasRepositorio.js";
+import { criarCritica, editarCritica, buscarCritica } from "../js/repositorios/criticasRepositorio.js";
 import { buscarLivro, buscarReferenciaLivro } from "../js/repositorios/livrosRepositorio.js";
 import { obterUsuarioLogado } from "./auth-guard.js";
 
@@ -11,8 +11,13 @@ async function inicializar() {
     let idLivro = obterIdLivro();
     let idCritica = obterIdCritica();
 
-    var livro = await buscarLivro(idLivro);
+    let livro = await buscarLivro(idLivro);
     document.getElementById('livro-atual').textContent = livro.titulo;
+
+    if(idCritica != null){
+        let critica = await buscarCritica(idCritica);
+        document.getElementById('critica').textContent = critica.critica;
+    }
 
     const btnEnviar = document.getElementById("cadastro-critica");
     btnEnviar.addEventListener('click', async function () {
