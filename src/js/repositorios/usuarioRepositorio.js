@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
 import { doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
 import { db, auth } from '../firebaseConfig.js';
-import { criarCookie } from '../auth-guard.js';
+import { criarCookie, resetarCookie } from '../auth-guard.js';
 
 // ToDO: Mensagem para email já existe
 export function criarAutentificacao(autentificacao) {
@@ -36,6 +36,7 @@ export function logar(usuario) {
 export function logout() {
     signOut(auth)
         .then((userCredential) => {
+            resetarCookie()
             console.log(userCredential);
         })
         .catch((error) => {

@@ -17,12 +17,14 @@ async function inicializar() {
         preencherDadosCriticas(usuario.referencia);
         document.getElementById('username').innerHTML = usuario.username;
     }
+    else if (usuarioLogado()) {
+        let usuario = await obterUsuarioLogado();
+        preencherDadosCriticas(usuario.referencia);
+        document.getElementById('username').innerHTML = usuario.username;
+    }
     else {
-        if (usuarioLogado()) {
-            let usuario = await obterUsuarioLogado();
-            preencherDadosCriticas(usuario.referencia);
-            document.getElementById('username').innerHTML = usuario.username;
-        }
+        // usuario não logado e idUsuario == null
+        redirecionarPara("../index.html")
     }
 }
 
@@ -92,7 +94,7 @@ async function criarCriticaLogado(critica) {
             </div>
         </div>`
     container.innerHTML += criticaDiv;
-    
+
     document.querySelectorAll('.delete').forEach(botao => {
         botao.addEventListener('click', () => { deletar(botao.id) })
     })
