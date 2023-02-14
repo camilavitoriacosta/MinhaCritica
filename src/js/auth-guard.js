@@ -1,7 +1,6 @@
 import { obterUsuario } from './repositorios/usuarioRepositorio.js';
 
 
-// TO DO: colocar data de expiração
 export function criarCookie(userCredential) {
     let dataExpiracao = new Date();
     dataExpiracao.setDate(dataExpiracao.getDate() + 5);

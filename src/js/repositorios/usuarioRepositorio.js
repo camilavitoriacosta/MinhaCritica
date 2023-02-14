@@ -9,9 +9,29 @@ export function criarAutentificacao(autentificacao) {
         .then((userCredential) => {
             const user = userCredential.user;
             criarUsuario(user.uid, autentificacao);
+            return "Usuario criado com sucesso";
         })
         .catch((error) => {
-            console.log(error);
+            const erros = [
+                { code: 'auth/email-already-in-use', mensagem: 'Email já esta em uso' },
+                { code: 'auth/invalid-email', mensagem: 'Email inválido' },
+                { code: 'auth/wrong-password', mensagem: 'Senha inválida' }
+            ]
+            let mensagem = '';
+            erros.forEach((erro) => {
+                if (error.code == erro.code) {
+                    mensagem = erro.mensagem;
+                }
+            })
+
+            if(mensagem){
+                console.log(mensagem);
+                return mensagem;
+            }
+            else{
+                console.log(error);
+                return "Ocorreu um erro inesperado, tente novamente";
+            }
         })
 }
 
@@ -46,7 +66,7 @@ export function logout() {
 
 export async function obterUsuario(uid) {
     const docRef = doc(db, 'usuarios', uid);
-    
+
     const docSnap = await getDoc(docRef).then(resultado => {
         return converterUsuarioParaJSON(resultado.id, docRef, resultado.data());
     }).catch(erro => {
