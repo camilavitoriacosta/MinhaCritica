@@ -3,8 +3,11 @@ import { obterUsuario } from './repositorios/usuarioRepositorio.js';
 
 // TO DO: colocar data de expiração
 export function criarCookie(userCredential) {
-    document.cookie = "usuarioToken=" + userCredential.user.accessToken;
-    document.cookie = "usuarioUid=" + userCredential.user.uid;
+    let dataExpiracao = new Date();
+    dataExpiracao.setDate(dataExpiracao.getDate() + 5);
+    
+    document.cookie = "usuarioToken=" + userCredential.user.accessToken + "; expires=" + dataExpiracao;
+    document.cookie = "usuarioUid=" + userCredential.user.uid + "; expires=" + dataExpiracao;
 }
 
 //Apaga cookie quando o usuario desloga, setando a data de expiração para uma data passada
