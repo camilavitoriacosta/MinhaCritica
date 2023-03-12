@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
 import { db, auth } from '../firebaseConfig.js';
 import { criarCookie, resetarCookie } from '../usuarioAutentificacao.js';
+import { mostrarAlertaErro } from '../validadores/alerta.js';
 
 // ToDO: Mensagem para email já existe
 export function criarAutentificacao(autentificacao) {
@@ -12,27 +13,26 @@ export function criarAutentificacao(autentificacao) {
             return "Usuario criado com sucesso";
         })
         .catch((error) => {
-            const erros = [
-                { code: 'auth/email-already-in-use', mensagem: 'Email já esta em uso' },
-                { code: 'auth/invalid-email', mensagem: 'Email inválido' },
-                { code: 'auth/wrong-password', mensagem: 'Senha inválida' }
-            ]
-            let mensagem = '';
-            erros.forEach((erro) => {
-                if (error.code == erro.code) {
-                    mensagem = erro.mensagem;
-                }
-            })
-
-            if(mensagem){
-                console.log(mensagem);
-                return mensagem;
-            }
-            else{
-                console.log(error);
-                return "Ocorreu um erro inesperado, tente novamente";
-            }
+            mostrarMensagemErroAutentificacao(error);
         })
+}
+
+function mostrarMensagemErroAutentificacao(error) {
+    const erros = [
+        { campo: 'email', code: 'auth/email-already-in-use', mensagem: 'Email já esta em uso' },
+        { campo: 'email', code: 'auth/invalid-email', mensagem: 'Email inválido' },
+        { campo: 'senha', code: 'auth/wrong-password', mensagem: 'Senha inválida' }
+    ]
+    let mensagem = "Ocorreu um erro inesperado, tente novamente";
+    let campo = 'formulario';
+    erros.forEach((erro) => {
+        if (error.code == erro.code) {
+            mensagem = erro.mensagem;
+            campo = erro.campo;
+        }
+    })
+
+    mostrarAlertaErro('alerta-' + campo, mensagem);
 }
 
 async function criarUsuario(chave, usuario) {
@@ -49,7 +49,7 @@ export function logar(usuario) {
             criarCookie(userCredential);
         })
         .catch((error) => {
-            console.log(error);
+            mostrarMensagemErroAutentificacao(error);
         })
 }
 
