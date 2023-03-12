@@ -1,6 +1,6 @@
 const caminhoTemplates = "../../templates";
 import { logout } from "../js/repositorios/usuarioRepositorio.js";
-import { usuarioLogado } from "../js/auth-guard.js";
+import { usuarioLogado } from "./usuarioAutentificacao.js";
 
 function exibirConteudoEm(container, conteudo) {
     container.load(conteudo);
@@ -26,20 +26,8 @@ export function exibirCabecalho() {
     }, 3000)
 }
 
-export function listagemLivros() {
-    redirecionarPara("../templates/index.html");
-}
-
 export function adicionarLivro() {
     redirecionarPara("../templates/adicionarLivro.html");
-}
-
-export function detalhesLivro() {
-    redirecionarPara("../templates/detalhesLivro.html");
-}
-
-export function adicionarCritica() {
-    redirecionarPara("../templates/adicionarCritica.html");
 }
 
 export function redirecionarPara(caminho) {

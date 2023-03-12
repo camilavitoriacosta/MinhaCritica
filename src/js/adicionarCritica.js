@@ -1,7 +1,9 @@
 import { exibirCabecalho } from "../js/base.js";
 import { criarCritica, editarCritica, buscarCritica } from "../js/repositorios/criticasRepositorio.js";
 import { buscarLivro, buscarReferenciaLivro } from "../js/repositorios/livrosRepositorio.js";
-import { obterUsuarioLogado } from "./auth-guard.js";
+import { obterUsuarioLogado } from "./usuarioAutentificacao.js";
+import { mostrarAlertaErro, esconderAlertaErro } from "./validadores/alerta.js";
+import { campoVazio } from "./validadores/validacao.js";
 
 inicializar();
 
@@ -14,7 +16,7 @@ async function inicializar() {
     let livro = await buscarLivro(idLivro);
     document.getElementById('livro-atual').textContent = livro.titulo;
 
-    if(idCritica != null){
+    if (idCritica != null) {
         let critica = await buscarCritica(idCritica);
         document.getElementById('critica').textContent = critica.critica;
     }
@@ -22,10 +24,10 @@ async function inicializar() {
     const btnEnviar = document.getElementById("cadastro-critica");
     btnEnviar.addEventListener('click', async function () {
         let dadosCritica;
-        let critica = document.getElementById('critica').value;
+        let critica = document.getElementById('critica').value.trim();
 
         if (validacao(critica)) {
-            let date = getDate();
+            let date = obterData();
             let codigoLivro = await buscarReferenciaLivro(idLivro);
 
             dadosCritica = {
@@ -62,16 +64,19 @@ function obterIdCritica() {
     return idCritica;
 }
 
-function validacao(userName, critica) {
-    if (critica == "") {
-        window.alert("Preencha a descrição da critica");
-        return false;
+function validacao(critica) {
+    let valido = campoVazio(critica);
+    if(!valido){
+        mostrarAlertaErro("alerta-descricao-critica", "Preencha esse campo");
     }
-
-    return true;
+    else{
+        esconderAlertaErro("alerta-descricao-critica");
+    }
+    return valido;
 }
 
-function getDate() {
+
+function obterData() {
     let data = new Date();
     let dia = String(data.getDate()).padStart(2, '0');
     let mes = String(data.getMonth() + 1).padStart(2, '0');

@@ -1,5 +1,5 @@
 import { logar } from "../js/repositorios/usuarioRepositorio.js";
-import { usuarioLogado } from "./auth-guard.js";
+import { usuarioLogado } from "./usuarioAutentificacao.js";
 import { redirecionarPara } from "../js/base.js";
 
 if (usuarioLogado()) {

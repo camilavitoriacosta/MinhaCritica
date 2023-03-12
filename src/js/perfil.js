@@ -1,7 +1,7 @@
 import { exibirCabecalho, redirecionarPara } from "../js/base.js";
 import { buscarCriticasUsuario, deletarCritica } from "../js/repositorios/criticasRepositorio.js";
 import { obterUsuario } from "../js/repositorios/usuarioRepositorio.js";
-import { obterUsuarioLogado, usuarioLogado } from "./auth-guard.js";
+import { obterUsuarioLogado, usuarioLogado } from "./usuarioAutentificacao.js";
 import { buscarLivro } from "./repositorios/livrosRepositorio.js";
 
 
