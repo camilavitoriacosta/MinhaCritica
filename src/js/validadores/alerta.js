@@ -2,7 +2,7 @@ export function mostrarAlertaErro(idElemento, mensagem) {
     mostrarAlerta(idElemento, 'alerta-erro', mensagem);
 }
 
-export function esconderAlertaErro(idElemento){
+export function esconderAlertaErro(idElemento) {
     esconderAlerta(idElemento, 'alerta-erro')
 }
 

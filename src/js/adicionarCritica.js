@@ -2,8 +2,7 @@ import { exibirCabecalho } from "../js/base.js";
 import { criarCritica, editarCritica, buscarCritica } from "../js/repositorios/criticasRepositorio.js";
 import { buscarLivro, buscarReferenciaLivro } from "../js/repositorios/livrosRepositorio.js";
 import { obterUsuarioLogado } from "./usuarioAutentificacao.js";
-import { mostrarAlertaErro, esconderAlertaErro } from "./validadores/alerta.js";
-import { campoVazio } from "./validadores/validacao.js";
+import { validarCampos } from "./validadores/validacao.js";
 
 inicializar();
 
@@ -24,14 +23,14 @@ async function inicializar() {
     const btnEnviar = document.getElementById("cadastro-critica");
     btnEnviar.addEventListener('click', async function () {
         let dadosCritica;
-        let critica = document.getElementById('critica').value.trim();
+        let critica = document.getElementById('critica');
 
-        if (validacao(critica)) {
+        if (validarCampos([critica])) {
             let date = obterData();
             let codigoLivro = await buscarReferenciaLivro(idLivro);
 
             dadosCritica = {
-                "critica": critica,
+                "critica": critica.value.trim(),
                 "data": date,
                 "codigoLivro": codigoLivro,
                 "usuario": (await obterUsuarioLogado()).referencia
@@ -64,16 +63,6 @@ function obterIdCritica() {
     return idCritica;
 }
 
-function validacao(critica) {
-    let valido = !campoVazio(critica);
-    if(!valido){
-        mostrarAlertaErro("alerta-descricao-critica", "Preencha esse campo");
-    }
-    else{
-        esconderAlertaErro("alerta-descricao-critica");
-    }
-    return valido;
-}
 
 
 function obterData() {

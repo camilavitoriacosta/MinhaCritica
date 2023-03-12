@@ -1,16 +1,25 @@
 import { criarAutentificacao } from "../js/repositorios/usuarioRepositorio.js";
+import { mostrarAlertaErro } from "./validadores/alerta.js";
+import { validarCampos } from "./validadores/validacao.js";
 
 
 document.querySelector("#cadastro-usuario").addEventListener('click', () => {
-    let usuario = {
-        "username": document.querySelector("#username").value,
-        "email": document.querySelector("#email").value,
-        "senha": document.querySelector("#senha").value
-    }
-    if (usuario.senha.length >= 6) {
-        criarAutentificacao(usuario);
-    }
-    else {
-        console.log("Senha curta");
+    let usernameCampo = document.querySelector("#username");
+    let emailCampo = document.querySelector("#email");
+    let senhaCampo = document.querySelector("#senha");
+    const campos = [usernameCampo, emailCampo, senhaCampo];
+
+    if (validarCampos(campos)) {
+        if (senhaCampo.value.length >= 6) {
+            let usuario = {
+                "username": usernameCampo.value,
+                "email": emailCampo.value,
+                "senha": senhaCampo.value
+            }
+            criarAutentificacao(usuario);
+        }
+        else {
+            mostrarAlertaErro("alerta-senha", "A senha deve ter mais de 6 caracteres");
+        }
     }
 })
