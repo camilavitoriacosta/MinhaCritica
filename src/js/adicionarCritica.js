@@ -65,7 +65,7 @@ function obterIdCritica() {
 }
 
 function validacao(critica) {
-    let valido = campoVazio(critica);
+    let valido = !campoVazio(critica);
     if(!valido){
         mostrarAlertaErro("alerta-descricao-critica", "Preencha esse campo");
     }

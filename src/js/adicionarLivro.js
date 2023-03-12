@@ -1,5 +1,7 @@
 import { exibirCabecalho } from "../js/base.js";
 import { criarLivro } from "../js/repositorios/livrosRepositorio.js";
+import { mostrarAlertaErro, esconderAlertaErro } from "./validadores/alerta.js";
+import { campoVazio } from "./validadores/validacao.js";
 
 inicializar();
 
@@ -28,13 +30,12 @@ function validarDados() {
     let valido = [];
     const dadosLivro = document.querySelectorAll(".formulario__adicionar__campo__input");
     dadosLivro.forEach(dado => {
-        if (dado.value == "") {
-            let alerta = document.getElementById("alerta-" + dado.name);
-            alerta.classList.add("alerta-erro");
-            alerta.innerHTML = "Preencha o campo";
+        if (campoVazio(dado.value)) {
+            mostrarAlertaErro("alerta-" + dado.name, "Preencha o campo");
             valido.push(false);
+        } else {
+            esconderAlertaErro("alerta-" + dado.name);
         }
     });
-    console.log(valido);
     return !valido.includes(false);
 }

@@ -1,4 +1,4 @@
 export function campoVazio(campo) {
-    return campo != "";
+    return campo == "";
 }
 
