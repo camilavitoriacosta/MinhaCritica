@@ -1,5 +1,5 @@
-const caminhoTemplates = "../../templates";
-import { logout } from "../js/repositorios/usuarioRepositorio.js";
+const caminhoTemplates = "./../../templates";
+import { logout } from "./../js/repositorios/usuarioRepositorio.js";
 import { usuarioLogado } from "./usuarioAutentificacao.js";
 
 function exibirConteudoEm(container, conteudo) {
