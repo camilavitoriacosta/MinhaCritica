@@ -13,13 +13,13 @@ export function exibirCabecalho() {
         if (usuarioLogado()) {
             botao.addEventListener('click', () => {
                 logout();
-                redirecionarPara("../index.html")
+                redirecionarPara("./../index.html")
             })
         }
         else {
             botao.textContent = "Login";
             botao.addEventListener('click', () => {
-                redirecionarPara("../index.html")
+                redirecionarPara("./../index.html")
             })
             document.querySelector("#perfil").style.display = "none";
         }
