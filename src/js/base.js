@@ -27,7 +27,7 @@ export function exibirCabecalho() {
 }
 
 export function adicionarLivro() {
-    redirecionarPara("../templates/adicionarLivro.html");
+    redirecionarPara("./../templates/adicionarLivro.html");
 }
 
 export function redirecionarPara(caminho) {
