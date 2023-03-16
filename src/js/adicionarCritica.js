@@ -48,7 +48,7 @@ async function inicializar() {
         });
     }
     else{
-        redirecionarPara('../../index.html');
+        redirecionarPara('./index.html');
     }
 
 }

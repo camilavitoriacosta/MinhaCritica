@@ -1,4 +1,4 @@
-import { logout } from "./../js/repositorios/usuarioRepositorio.js";
+import { logout } from "js/repositorios/usuarioRepositorio.js";
 import { usuarioLogado } from "./usuarioAutentificacao.js";
 
 function exibirConteudoEm(container, conteudo) {
@@ -12,13 +12,13 @@ export function exibirCabecalho() {
         if (usuarioLogado()) {
             botao.addEventListener('click', () => {
                 logout();
-                redirecionarPara("./../index.html")
+                redirecionarPara("./index.html")
             })
         }
         else {
             botao.textContent = "Login";
             botao.addEventListener('click', () => {
-                redirecionarPara("./../index.html")
+                redirecionarPara("./index.html")
             })
             document.querySelector("#perfil").style.display = "none";
         }
@@ -26,7 +26,7 @@ export function exibirCabecalho() {
 }
 
 export function adicionarLivro() {
-    redirecionarPara("./../adicionarLivro.html");
+    redirecionarPara("./adicionarLivro.html");
 }
 
 export function redirecionarPara(caminho) {
