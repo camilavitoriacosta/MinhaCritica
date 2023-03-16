@@ -1,6 +1,6 @@
-import { exibirCabecalho, redirecionarPara } from "../js/base.js";
-import { buscarLivro } from "../js/repositorios/livrosRepositorio.js";
-import { buscarCriticasLivro, deletarCritica } from "../js/repositorios/criticasRepositorio.js";
+import { exibirCabecalho, redirecionarPara } from "./../js/base.js";
+import { buscarLivro } from "./../js/repositorios/livrosRepositorio.js";
+import { buscarCriticasLivro } from "./../js/repositorios/criticasRepositorio.js";
 
 inicializar();
 
