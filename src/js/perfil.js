@@ -30,7 +30,7 @@ async function inicializar() {
 
 function obterIdUsuario() {
     // Get idLivro in url
-    // example url: http://127.0.0.1:5500/templates/perfil.html?idUsuario=
+    // example url: http://127.0.0.1:5500/perfil.html?idUsuario=
     const urlParams = new URLSearchParams(window.location.search);
     const idUsuario = urlParams.get('idUsuario')
     return idUsuario;

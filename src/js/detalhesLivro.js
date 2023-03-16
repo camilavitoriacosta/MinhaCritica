@@ -18,7 +18,7 @@ function inicializar() {
 
 function obterIdLivro() {
     // Get idLivro in url
-    // example url: http://127.0.0.1:5500/templates/detalhesLivro.html?idLivro=zAe2KrUkM7T3XlZJNW3F
+    // example url: http://127.0.0.1:5500/detalhesLivro.html?idLivro=zAe2KrUkM7T3XlZJNW3F
     const urlParams = new URLSearchParams(window.location.search);
     const idLivro = urlParams.get('idLivro')
     return idLivro;

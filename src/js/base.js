@@ -1,4 +1,3 @@
-const caminhoTemplates = "./../../templates";
 import { logout } from "./../js/repositorios/usuarioRepositorio.js";
 import { usuarioLogado } from "./usuarioAutentificacao.js";
 
@@ -7,7 +6,7 @@ function exibirConteudoEm(container, conteudo) {
 }
 
 export function exibirCabecalho() {
-    exibirConteudoEm($("#cabecalho"), caminhoTemplates + "/cabecalho.html");
+    exibirConteudoEm($("#cabecalho"), "./cabecalho.html");
     setTimeout(() => {
         const botao = document.querySelector("#logout");
         if (usuarioLogado()) {
@@ -27,7 +26,7 @@ export function exibirCabecalho() {
 }
 
 export function adicionarLivro() {
-    redirecionarPara("./../templates/adicionarLivro.html");
+    redirecionarPara("./../adicionarLivro.html");
 }
 
 export function redirecionarPara(caminho) {

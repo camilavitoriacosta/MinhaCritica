@@ -4,7 +4,7 @@ import { redirecionarPara } from "./../js/base.js";
 import { validarCampos } from "./validadores/validacao.js";
 
 if (usuarioLogado()) {
-    redirecionarPara("./../../templates/listagemLivro.html");
+    redirecionarPara("./../../listagemLivro.html");
 }
 
 document.querySelector("#entrar").addEventListener('click', () => {
@@ -19,7 +19,7 @@ document.querySelector("#entrar").addEventListener('click', () => {
         logar(usuario);
         setTimeout(() => {
             if (usuarioLogado()) {
-                window.location.href = "./../../templates/listagemLivro.html";
+                window.location.href = "./../../listagemLivro.html";
             }
         }, 1000);
     }
