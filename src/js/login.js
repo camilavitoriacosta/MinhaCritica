@@ -19,7 +19,7 @@ document.querySelector("#entrar").addEventListener('click', () => {
         logar(usuario);
         setTimeout(() => {
             if (usuarioLogado()) {
-                redirecionarPara("./../../templates/listagemLivro.html");
+                window.location.href = "./../../templates/listagemLivro.html";
             }
         }, 1000);
     }
