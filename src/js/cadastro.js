@@ -10,16 +10,11 @@ document.querySelector("#cadastro-usuario").addEventListener('click', () => {
     const campos = [usernameCampo, emailCampo, senhaCampo];
 
     if (validarCampos(campos)) {
-        if (senhaCampo.value.length >= 6) {
-            let usuario = {
-                "username": usernameCampo.value,
-                "email": emailCampo.value,
-                "senha": senhaCampo.value
-            }
-            criarAutentificacao(usuario);
+        let usuario = {
+            "username": usernameCampo.value,
+            "email": emailCampo.value,
+            "senha": senhaCampo.value
         }
-        else {
-            mostrarAlertaErro("alerta-senha", "A senha deve ter mais de 6 caracteres");
-        }
+        criarAutentificacao(usuario);
     }
 })
