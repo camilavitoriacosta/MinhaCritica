@@ -34,3 +34,7 @@ export function redirecionarPara(caminho) {
     window.location.href = caminho;
 }
 
+export function obterValorParametroUrl(parametro){
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(parametro);
+}

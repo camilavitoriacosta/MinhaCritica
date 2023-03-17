@@ -1,4 +1,4 @@
-import { exibirCabecalho, redirecionarPara } from "../js/base.js";
+import { exibirCabecalho, redirecionarPara, obterValorParametroUrl } from "../js/base.js";
 import { criarCritica, editarCritica, buscarCritica } from "../js/repositorios/criticasRepositorio.js";
 import { buscarLivro, buscarReferenciaLivro } from "../js/repositorios/livrosRepositorio.js";
 import { obterUsuarioLogado, usuarioLogado } from "./usuarioAutentificacao.js";
@@ -6,19 +6,20 @@ import { validarCampos } from "./validadores/validacao.js";
 
 inicializar();
 
-
 async function inicializar() {
     if (usuarioLogado()) {
         exibirCabecalho();
         let idLivro = obterIdLivro();
         let idCritica = obterIdCritica();
 
-        let livro = await buscarLivro(idLivro);
-        document.getElementById('livro-atual').textContent = livro.titulo;
+        buscarLivro(idLivro).then((livro) => {
+            document.getElementById('livro-atual').textContent = livro.titulo;
+        });
 
         if (idCritica != null) {
-            let critica = await buscarCritica(idCritica);
-            document.getElementById('critica').textContent = critica.critica;
+            buscarCritica(idCritica).then((critica) => {
+                document.getElementById('critica').textContent = critica.critica;
+            });
         }
 
         const btnEnviar = document.getElementById("cadastro-critica");
@@ -47,29 +48,22 @@ async function inicializar() {
             }
         });
     }
-    else{
+    else {
         redirecionarPara('../../index.html');
     }
-
 }
 
 function obterIdLivro() {
     // Get idLivro in url
     // example url: http://127.0.0.1:5500/templates/detalhesLivro.html?idLivro=zAe2KrUkM7T3XlZJNW3F
-    const urlParams = new URLSearchParams(window.location.search);
-    const idLivro = urlParams.get('idLivro')
-    return idLivro;
+    return obterValorParametroUrl('idLivro');
 }
 
 function obterIdCritica() {
     // Get idLivro in url
     // example url: http://127.0.0.1:5500/templates/adicionarCritica.html?idLivro=zAe2KrUkM7T3XlZJNW3F&&idCritica=XbapO3v3BElWfIIsA4Fh
-    const urlParams = new URLSearchParams(window.location.search);
-    const idCritica = urlParams.get('idCritica')
-    return idCritica;
+    return obterValorParametroUrl('idCritica');
 }
-
-
 
 function obterData() {
     let data = new Date();
