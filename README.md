@@ -14,4 +14,4 @@ Aplicação para que usuários possam escrever críticas de livros.
 
 - O JavaScript realiza a comunicação com o banco de dados por meio do **Firebase** que disponibiliza uma API para criação, acesso e leitura dos dados.
 
-
+![Video Demo](https://github.com/camilavitoriacosta/MinhaCritica/blob/master/src/videodemonstrativo.gif)
